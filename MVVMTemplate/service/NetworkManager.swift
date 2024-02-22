@@ -12,7 +12,7 @@ struct NetworkManager{
     
     static let instance = NetworkManager()
     
-    let baseAPIURL = "API URLTEST"
+    let baseAPIURL = "API URL"
     
     public func fetch<T:Codable, U: Codable> (_ method: HTTPMethod, endpoint: String, requestModel: T?, model: T.Type, responseDataModel: U.Type, completion: @escaping (AFResult<Codable?>?) -> Void?) {
         let url = self.baseAPIURL + endpoint
