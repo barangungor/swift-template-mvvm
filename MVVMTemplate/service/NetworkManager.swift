@@ -15,7 +15,6 @@ struct NetworkManager{
     let baseAPIURL = "API URL"
     
     public func fetch<T:Codable, U: Codable> (_ method: HTTPMethod, endpoint: String, requestModel: T?, model: T.Type, responseDataModel: U.Type, completion: @escaping (AFResult<Codable?>?) -> Void?) {
-        print(toEncodedData(model: requestModel))
         let url = self.baseAPIURL + endpoint
         let urlEncoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         AF.request(urlEncoded!, method: method, parameters: toEncodedData(model: requestModel),encoding: JSONEncoding.default).responseData { response in
